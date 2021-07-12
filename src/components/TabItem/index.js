@@ -1,20 +1,25 @@
-// Write your code here
-const TabItem = props => {
-  const {tabDetails, onChangeTab, isActive} = props
-  const {displayText, tabId} = tabDetails
+import './index.css'
 
-  const onTabSwitch = () => {
-    onChangeTab(tabId)
+const TabItem = props => {
+  const {tabDetails, clickTabItem, isActive} = props
+  const {tabId, displayText} = tabDetails
+  const onClickTabItem = () => {
+    clickTabItem(tabId)
   }
 
-  const tabClassName = isActive ? 'tab-button active' : 'tab-button'
+  const tabBtnClassName = isActive ? 'tab-button active' : 'tab-button'
 
   return (
-    <li>
-      <button className={tabClassName} type="button" onClick={onTabSwitch}>
+    <li className="tab-item">
+      <button
+        type="button"
+        onClick={onClickTabItem}
+        className={tabBtnClassName}
+      >
         {displayText}
       </button>
     </li>
   )
 }
+
 export default TabItem
